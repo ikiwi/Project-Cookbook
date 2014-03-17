@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RecipesViewController.h
 //  Project Cookbook
 //
 //  Created by Kalai Wei on 3/16/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface RecipesViewController : UITableViewController
 
 @end
