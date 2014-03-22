@@ -29,6 +29,7 @@ NSString *APPKEY = @"0ed770d030e2d8431c3788b1aa613fb5";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self queryRecipe:@"kale"];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -40,6 +41,7 @@ NSString *APPKEY = @"0ed770d030e2d8431c3788b1aa613fb5";
 - (NSMutableArray*)queryRecipe:(NSString*)queryData
 {
     NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://api.yummly.com/v1/api/recipes?_app_id=%@&_app_key=%@&q=%@", APPID, APPKEY, queryData]];
+    NSLog(@"Recipe url: %@", url);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
     NSHTTPURLResponse *response = nil;
@@ -52,44 +54,26 @@ NSString *APPKEY = @"0ed770d030e2d8431c3788b1aa613fb5";
     NSString * recipeName;
     NSString * recipeId;
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    [theScanner scanUpToString:@"recipeName" intoString:NULL];
+    [theScanner scanUpToString:@"recipeName\":\"" intoString:NULL];
     [theScanner scanString:@"recipeName\":\"" intoString:NULL];
-    [theScanner scanUpToString:@"\",\"" intoString:&recipeName];
-    [theScanner scanString:@"id" intoString:NULL];
-    [theScanner scanUpToString:@"id\",\"" intoString:&recipeId];
-    url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://www.yummly.com/recipe/%@", recipeId]];
-    request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [theScanner scanUpToString:@"\"" intoString:&recipeName];
+    [theScanner scanUpToString:@"id\":\"" intoString:NULL];
+    [theScanner scanString:@"id\":\"" intoString:NULL];
+    [theScanner scanUpToString:@"\"" intoString:&recipeId];
+    NSLog(@"RecipeName: %@ recipeId: %@", recipeName, recipeId);
+    NSURL *url2 = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://www.yummly.com/recipe/external/%@", recipeId]];
+    request = [[NSMutableURLRequest alloc] initWithURL:url2];
+
+    NSLog(@"Recipe url2: %@", url2);
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [webView loadRequest:[NSURLRequest requestWithURL:url2]];
+    [self.view addSubview:webView];
     
     response = nil;
     error = nil;
     // this will perform a synchronous GET operation passing the values you specified in the header (typically you want asynchrounous, but for simplicity of answering the question it works)
     responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
    responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-/*    while ([theScanner isAtEnd] == NO) {
-        [theScanner scanString:@"minutes=\"" intoString:NULL];
-        [theScanner scanInteger:&firstPred];
-        [theScanner scanUpToString:@"dirTag=\"" intoString:NULL];
-        [theScanner scanString:@"dirTag=\"" intoString:NULL];
-        [theScanner scanUpToString:@"\"" intoString:&tmp];
-        if (dirTag == nil) {
-            dirTag = tmp;
-        }
-        if ([tmp length] > 0) {
-            // outbound and inbound stop have different id
-            // so if the dirTag is different, that means there
-            // are multiple lines in the same direction.
-            // we'll just pick one.
-            idx++;
-            [result addObject:[NSString stringWithFormat:@"%ld", (long)firstPred]];
-        }
-        [theScanner scanUpToString:@"minutes" intoString:NULL];
-    }
-    NSInteger count = [result count];
-    while (count < 5) {
-        //if there no more predictions, pad the rest of the array
-        [result addObject:@"-"];
-        count++;
-    }*/
     
     return result;
 }
