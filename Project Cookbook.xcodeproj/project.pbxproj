@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A647A1A918DD3ED1003A96FC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A647A1A818DD3ED1003A96FC /* MainViewController.m */; };
 		A6C5295918D66FB500EF11E7 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C5295818D66FB500EF11E7 /* Menu.m */; };
 		A6C5295B18D67BA000EF11E7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C5295A18D67BA000EF11E7 /* FacebookSDK.framework */; };
 		A6FCE42818D64B7100DD0CE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FCE42718D64B7100DD0CE3 /* Foundation.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A647A1A718DD3ED1003A96FC /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		A647A1A818DD3ED1003A96FC /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A6C5295718D66FB500EF11E7 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		A6C5295818D66FB500EF11E7 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		A6C5295A18D67BA000EF11E7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -127,8 +130,10 @@
 				A6FCE43918D64B7100DD0CE3 /* Main.storyboard */,
 				A6C5295718D66FB500EF11E7 /* Menu.h */,
 				A6C5295818D66FB500EF11E7 /* Menu.m */,
-				A6FCE46518D6587E00DD0CE3 /* RecipesViewController.h */,
+				A647A1A718DD3ED1003A96FC /* MainViewController.h */,
+				A647A1A818DD3ED1003A96FC /* MainViewController.m */,
 				A6FCE46618D6587E00DD0CE3 /* RecipesViewController.m */,
+				A6FCE46518D6587E00DD0CE3 /* RecipesViewController.h */,
 				A6FCE46218D653BA00DD0CE3 /* FriendsViewController.h */,
 				A6FCE46318D653BA00DD0CE3 /* FriendsViewController.m */,
 				A6FCE43F18D64B7100DD0CE3 /* Images.xcassets */,
@@ -264,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6FCE46418D653BA00DD0CE3 /* FriendsViewController.m in Sources */,
+				A647A1A918DD3ED1003A96FC /* MainViewController.m in Sources */,
 				A6FCE43818D64B7100DD0CE3 /* AppDelegate.m in Sources */,
 				A6FCE43418D64B7100DD0CE3 /* main.m in Sources */,
 				A6C5295918D66FB500EF11E7 /* Menu.m in Sources */,

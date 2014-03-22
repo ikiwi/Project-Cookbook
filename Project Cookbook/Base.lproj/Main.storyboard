@@ -95,9 +95,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fY0-ZC-wtr"/>
+                    <navigationItem key="navigationItem" id="fY0-ZC-wtr">
+                        <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="oTx-2S-XCd">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fKL-Nl-NKz">
+                                <rect key="frame" x="176" y="5" width="128" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Friends">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonClick:" destination="G5V-AG-xHT" eventType="touchUpInside" id="gb6-W9-UAV"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addIngButton" destination="o9o-yf-cB3" id="Gjx-ur-etS"/>
+                        <outlet property="loginButton" destination="fKL-Nl-NKz" id="RS7-8y-mvE"/>
                         <outlet property="menuTableView" destination="1uA-UZ-pfH" id="4KI-uS-eD5"/>
                         <outlet property="scrollView" destination="opk-Sa-Mb0" id="yUB-4o-1tV"/>
                     </connections>
@@ -142,12 +158,46 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="G5V-AG-xHT" kind="relationship" relationship="rootViewController" id="Cf1-bD-lJV"/>
+                        <segue destination="G5V-AG-xHT" kind="relationship" relationship="rootViewController" id="MXo-Dt-lcE"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8r-jB-muv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166" y="-21"/>
+            <point key="canvasLocation" x="698" y="-21"/>
+        </scene>
+        <!--MainViewController-->
+        <scene sceneID="iqR-Ad-yr7">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8zj-di-8HL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="psW-hH-CV4" userLabel="MainViewController" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9rF-vs-Idc"/>
+                        <viewControllerLayoutGuide type="bottom" id="wAb-a5-TBh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rar-3z-coL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="loginButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Yt-Vs-YL4" userLabel="loginButton">
+                                <rect key="frame" x="123" y="130" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Facebook">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonClick:" destination="psW-hH-CV4" eventType="touchUpInside" id="ffX-j9-qjN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dit-aB-Zwd"/>
+                    <connections>
+                        <outlet property="loginButton" destination="5Yt-Vs-YL4" id="iGg-gl-Ta5"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1231" y="-21"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
